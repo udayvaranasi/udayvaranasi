@@ -1,0 +1,45 @@
+package youtube;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Youtubeauto {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.drive", "C:\\Users\\udayk\\OneDrive\\Desktop\\chromedriver.exe");
+	
+		WebDriver driver = new ChromeDriver();
+		driver .get("https://www.google.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		WebElement googleapps = driver.findElement(By.xpath("//a[@aria-label='Google apps']"));
+		googleapps .click();
+		driver.switchTo().frame("app");
+		WebElement youtube = driver.findElement(By.linkText("YouTube"));
+		 youtube.click();
+		  Thread.sleep(3000);
+	   WebElement searchbar = driver.findElement(By.name("search_query"));
+	   searchbar.sendKeys("dhoni");
+                WebElement search = driver.findElement(By.id("search-icon-legacy"));
+                search.click();
+         Thread.sleep(3000);
+         List<WebElement> uday = driver.findElements(By.xpath("//ul[@role='listbox']//li"));
+         System.out.println(uday.size());
+         for(WebElement vasu : uday) {
+        	 if(vasu.getText().equals("movie")) {
+        		 vasu.click();
+        		 break;
+        	 }
+         }
+         
+         
+		 
+
+	}
+
+}
