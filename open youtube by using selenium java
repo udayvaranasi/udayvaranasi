@@ -14,19 +14,19 @@ public class Youtubeauto {
 		System.setProperty("webdriver.chrome.drive", "C:\\Users\\udayk\\OneDrive\\Desktop\\chromedriver.exe");
 	
 		WebDriver driver = new ChromeDriver();
-		driver .get("https://www.google.com/");
+		driver .get("https://www.google.com/"); // open chrome
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
-		WebElement googleapps = driver.findElement(By.xpath("//a[@aria-label='Google apps']"));
+		WebElement googleapps = driver.findElement(By.xpath("//a[@aria-label='Google apps']")); // click on apps
 		googleapps .click();
 		driver.switchTo().frame("app");
-		WebElement youtube = driver.findElement(By.linkText("YouTube"));
+		WebElement youtube = driver.findElement(By.linkText("YouTube")); // click on youtube
 		 youtube.click();
 		  Thread.sleep(3000);
 	   WebElement searchbar = driver.findElement(By.name("search_query"));
-	   searchbar.sendKeys("dhoni");
+	   searchbar.sendKeys("dhoni");                                               // click on searchbox
                 WebElement search = driver.findElement(By.id("search-icon-legacy"));
-                search.click();
+                search.click();                                                        // click on search button
          Thread.sleep(3000);
          List<WebElement> uday = driver.findElements(By.xpath("//ul[@role='listbox']//li"));
          System.out.println(uday.size());
